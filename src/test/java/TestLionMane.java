@@ -39,6 +39,6 @@ public class TestLionMane {
 @Test
 public void testHasMane () throws Exception  {
     Lion lion = new Lion(sex,feline);
-    assertEquals(hasMane, lion.doesHaveMane());
+    assertEquals("Ожидаемая результат: У льва есть грива",hasMane, lion.doesHaveMane());
 }
 }

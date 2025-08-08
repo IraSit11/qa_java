@@ -1,4 +1,6 @@
+import com.example.Cat;
 import com.example.Feline;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -7,37 +9,44 @@ import static org.junit.Assert.assertEquals;
 
 public class TestFeline {
 
+    private Feline feline;
+
+    @Before
+    public void setUp () throws Exception {
+        feline = new Feline();
+    }
+
 
     @Test
-    public void getFamily () {
-        Feline feline = new Feline();
+    public void testGetFamily () {
+
         String family = "Кошачьи";
         String actualFamily = feline.getFamily();
-        assertEquals(family, actualFamily);
+        assertEquals("Ожидаемое семейство: Кошачьи",family, actualFamily);
     }
 
     @Test
-    public void getKittensDefault () {
-        Feline feline = new Feline();
+    public void testGetKittensDefault () {
+
         int countKittens = 1;
         int actualCountKittens = feline.getKittens();
-        assertEquals(countKittens, actualCountKittens);
+        assertEquals("Ожидаемое количество котят по умолчанию: 1",countKittens, actualCountKittens);
     }
 
     @Test
-    public void getKittensParameter () {
-        Feline feline = new Feline();
+    public void testGetKittensParameter () {
+
         int countKittens = 4;
         int actualCountKittens = feline.getKittens(countKittens);
-        assertEquals(countKittens, actualCountKittens);
+        assertEquals("Ожидаемый параметр количества котят: 4",countKittens, actualCountKittens);
     }
 
     @Test
-    public void eatMeat() throws Exception {
-        Feline feline = new Feline();
+    public void testEatMeat() throws Exception {
+
         List<String> food = List.of ("Животные", "Птицы", "Рыба");
         List<String> actualFood = feline.eatMeat();
-        assertEquals(food, actualFood);
+        assertEquals("Ожидаемая еда: Животные, Птицы, Рыба",food, actualFood);
     }
 
 }
